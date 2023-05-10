@@ -16,7 +16,7 @@ RUN echo "tzdata tzdata/Areas select Europe" > /tmp/preseed.txt; \
     apt-get update && \
     apt-get install -y tzdata
 
-#Install PHP7, FastCGI Process Manager and PHP dependencies
+#Install PHP8, FastCGI Process Manager and PHP dependencies
 RUN apt install php8.1 php8.1-fpm php8.1-gd php8.1-memcached php8.1-curl php8.1-mysql \
     php8.1-intl php-pear php8.1-imagick php8.1-imap \
     php8.1-ps php8.1-pspell php8.1-snmp php8.1-tidy php8.1-xmlrpc \
