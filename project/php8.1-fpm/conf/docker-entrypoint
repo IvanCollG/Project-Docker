@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Set container IP
+#CONTAINER_IP=$(ip -o -4 addr show dev eth2 | sed 's/.* inet \([^/]*\).*/\1/')
+CONTAINER_IP=$(awk 'END{print $1}' /etc/hosts)
+
+# PHP7.0-FPM configuration
+sed -i "s/#CONTAINER_IP/$CONTAINER_IP/" /etc/php/8.1/fpm/pool.d/www.conf
+killall php-fpm8.1
+mkdir -p /var/www /var/run/php
+php-fpm8.1 -F
